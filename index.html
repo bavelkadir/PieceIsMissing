@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>You lost a piece inside of you I will find it for you and give it back</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(135deg, #add8e6, #e0f7fa); /* ljusblå */
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      margin: 0 0 15px 0;
+      font-size: 1.8rem;
+      color: #004080;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .intro-text {
+      max-width: 800px;
+      margin: auto;
+      padding: 15px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 12px;
+      color: #003366;
+      font-weight: 500;
+      animation: fadeInUp 2s ease;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .figure {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .figure img {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .figure img:hover { transform: scale(1.03); }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #0b3d91;
+      background: rgba(255,255,255,0.85);
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    /* Citat-rutor */
+    .quotes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .quote-card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-style: italic;
+      color: #b22222;
+    }
+
+    .quote-card .author {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      color: #444;
+      font-weight: 600;
+    }
+
+    @media (min-width: 760px){
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .quotes { grid-template-columns: 1fr 1fr; }
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      color: red;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Modal (förstorad bild) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      animation: fadeIn 0.35s ease;
+      padding: 2vh 2vw;
+      box-sizing: border-box;
+    }
+    .modal-content {
+      display: block;
+      max-width: 90vw;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.25);
+      margin: 0 auto;
+      animation: zoomIn 0.4s ease;
+    }
+    @keyframes zoomIn { from {transform: scale(0.92); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+
+    .close {
+      position: absolute;
+      top: 16px;
+      right: 26px;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover { color: #add8e6; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>You lost a piece inside of you I will find it for you and give it back 💕</h1>
+    <div class="intro-text">
+      När du känner dig tom, är det någon som håller nyckeln till att fylla dig igen.  
+      Denna sida är en påminnelse om styrkan i närhet, passion och hopp.
+    </div>
+  </header>
+
+  <section>
+    <div class="gallery">
+      <!-- Bild 1 -->
+      <figure class="figure">
+        <img src="1000007059.jpg" alt="En romantisk kväll" onclick="openModal(this.src)" />
+        <figcaption class="caption">Två själar, ett ögonblick av magi.</figcaption>
+      </figure>
+
+      <!-- Bild 2 -->
+      <figure class="figure">
+        <img src="1000008022.jpg" alt="Hon i klänning" onclick="openModal(this.src)" />
+        <figcaption class="caption">Ditt leende gör världen ljusare.</figcaption>
+      </figure>
+
+      <!-- Ny bild -->
+      <figure class="figure">
+        <img src="1000006244.jpg" alt="När tider var som bra" onclick="openModal(this.src)" />
+        <figcaption class="caption">När tider var som bra</figcaption>
+      </figure>
+    </div>
+
+    <!-- Två separata citat-rutor -->
+    <div class="quotes">
+      <div class="quote-card">
+        “You know you like the person when you can’t fall asleep before you solve the argument with the person.”
+      </div>
+      <div class="quote-card">
+        “Love is strength disguised as tenderness, and tenderness disguised as strength.”
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 A story about love</p>
+  </footer>
+
+  <!-- Modal for enlarged images -->
+  <div id="myModal" class="modal" aria-hidden="true" role="dialog">
+    <span class="close" onclick="closeModal()" aria-label="Stäng">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Förstorad bild">
+  </div>
+
+  <!-- Script for floating hearts + modal -->
+  <script>
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+    setInterval(createHeart, 600);
+
+    // Modal image functions
+    function openModal(src) {
+      const m = document.getElementById("myModal");
+      const img = document.getElementById("modalImg");
+      img.src = src;
+      m.style.display = "block";
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal() {
+      const m = document.getElementById("myModal");
+      m.style.display = "none";
+      m.setAttribute("aria-hidden", "true");
+    }
+    window.addEventListener("click", (e) => {
+      const m = document.getElementById("myModal");
+      if (e.target === m) closeModal();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
