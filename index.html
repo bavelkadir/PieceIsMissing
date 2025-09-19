@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(135deg, #add8e6, #e0f7fa); /* ljusblå */
+      background: #add8e6; /* ljusblå */
       color: #333;
       line-height: 1.6;
       text-align: center;
@@ -61,7 +61,7 @@
 
     .figure img {
       width: 100%;
-      max-width: 520px;
+      max-width: 400px; /* mindre */
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       transition: transform 0.4s ease;
@@ -80,7 +80,6 @@
       border-radius: 999px;
     }
 
-    /* Citat-rutor */
     .quotes {
       display: grid;
       grid-template-columns: 1fr;
@@ -97,14 +96,6 @@
       color: #b22222;
     }
 
-    .quote-card .author {
-      display: block;
-      margin-top: 8px;
-      font-style: normal;
-      color: #444;
-      font-weight: 600;
-    }
-
     @media (min-width: 760px){
       .gallery { grid-template-columns: 1fr 1fr; }
       .quotes { grid-template-columns: 1fr 1fr; }
@@ -119,11 +110,9 @@
       color: #555;
     }
 
-    /* Animations */
     @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
     @keyframes fadeInUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
 
-    /* Floating hearts */
     .heart {
       position: fixed;
       bottom: -20px;
@@ -139,7 +128,6 @@
       100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
     }
 
-    /* Modal (förstorad bild) */
     .modal {
       display: none;
       position: fixed;
@@ -223,15 +211,12 @@
     <p>© 2025 A story about love</p>
   </footer>
 
-  <!-- Modal for enlarged images -->
   <div id="myModal" class="modal" aria-hidden="true" role="dialog">
     <span class="close" onclick="closeModal()" aria-label="Stäng">&times;</span>
     <img class="modal-content" id="modalImg" alt="Förstorad bild">
   </div>
 
-  <!-- Script for floating hearts + modal -->
   <script>
-    // Floating hearts
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
@@ -243,7 +228,6 @@
     }
     setInterval(createHeart, 600);
 
-    // Modal image functions
     function openModal(src) {
       const m = document.getElementById("myModal");
       const img = document.getElementById("modalImg");
